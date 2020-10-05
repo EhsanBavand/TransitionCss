@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Transition Balls</title>
+<meta charset="utf-8" />
+<style>
+body{
+	margin-left:30px;
+}
+.container{
+  width:10%;
+  height:200px;
+}
+.ball {
+  margin-left:20px;
+  border-radius: 50%;
+  position:absolute;
+  text-align:center;
+  /* transform:none; */
+}
+.large{
+  background-color: #82eaff;
+  width:200px;
+  height:200px;
+  left:0;
+  transition: left 4s linear , transform 4s linear;
+}
+.small {
+  background-color: #ff8c19;
+  width:50px;
+  height:50px;
+  top:158px;
+  left:390px;
+  transition: left 2s linear 4s, transform 2s linear 4s;
+}
+
+.large:hover {
+  transform:rotate(360deg);
+  left:190px;
+}
+.large:hover + .small{
+  transform:rotate(360deg);
+  left:590px;
+}
+
+/* If both circles are inside the same parent */
+/* .container:hover .large{
+  transform:rotate(360deg);
+  left:190px;
+}
+
+.container:hover .small {
+  transform:rotate(360deg);
+  left:590px;
+} */
+
+/* Using checkbox as our trigger instead */
+input:checked +.container .large{
+  transform:rotate(360deg);
+  left:190px;
+}
+
+input:checked +.container .small {
+  transform:rotate(360deg);
+  left:590px;
+
+}
+
+</style>
+</head>
+<body>
+
+  <h3 style="color: red;">Please checked and unchecked the checkedbox</h3>
+  <input type="checkbox" name="chk">
+  <div class="container">
+    <div class="ball large"><br>Hello</div>
+    <div class="ball small"><br>Bye</div>
+  </div>
+</body>
+</html>
